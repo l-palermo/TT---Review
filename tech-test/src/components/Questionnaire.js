@@ -2,6 +2,7 @@ import React from 'react';
 import QuestionOne from './QuestionOne'
 import QuestionTwo from './QuestionTwo'
 import QuestionThree from './QuestionThree'
+import Result from './Result'
 
 class Questionnaire extends React.Component {
   constructor(props) {
@@ -13,6 +14,7 @@ class Questionnaire extends React.Component {
       height: '',
       weight: '',
       BMI: '',
+      coefficient: ''
     }
     this.onHandleChange = this.onHandleChange.bind(this);
     this.onHandleEligible = this.onHandleEligible.bind(this);
@@ -20,6 +22,7 @@ class Questionnaire extends React.Component {
     this.onHandleChangeHeight = this.onHandleChangeHeight.bind(this);
     this.onHandleChangeWeight = this.onHandleChangeWeight.bind(this);
     this.onHandleBMI = this.onHandleBMI.bind(this);
+    this.onHandleCoefficient = this.onHandleCoefficient.bind(this);
   }
 
   onHandleChange(event) {
@@ -46,6 +49,10 @@ class Questionnaire extends React.Component {
     this.setState({ BMI: bmi})
   }
 
+  onHandleCoefficient(coefficient) {
+    this.setState({ coefficient: coefficient })
+  }
+
   render() {
     return (
       <div>
@@ -66,6 +73,16 @@ class Questionnaire extends React.Component {
         <div>
           { this.state.smoker !== '' &&
             <QuestionThree onHandleBMI={this.onHandleBMI}/>
+          }
+        </div>
+        <div>
+          { this.state.BMI !== '' &&
+            <Result 
+              date={this.state.date}
+              BMI={this.state.BMI}
+              smoker={this.state.smoker}
+              onHandleCoefficient={this.onHandleCoefficient}
+            />
           }
         </div>
       </div>

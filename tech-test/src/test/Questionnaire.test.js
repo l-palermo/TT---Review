@@ -64,3 +64,13 @@ describe('#onHandleBMI', () => {
     expect(wrapper.state('BMI')).toEqual(22);
   })
 })
+
+describe('#onHandleCoefficient', () => {
+  it('calls this.state to change coefficient state', () => {
+    const wrapper = shallow(<Questionnaire />);
+    const instance = wrapper.instance()
+    const eventMock = 2
+    instance.onHandleCoefficient(eventMock);
+    expect(wrapper.state('coefficient')).toEqual(2);
+  })
+})
