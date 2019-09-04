@@ -8,7 +8,7 @@ The questionnaire includes three questions. Each of them reveals the next one un
 ## Instruction
 To run the program, create a new folder on your local machine open your text editor and create a new folder then run the following commands:
 * `>$ git clone git@github.com:l-palermo/tech-test-questionnaire.git`<br>Clones this repository
-* `>$ cd tech-test`
+* `>$ cd tech-test-questionnaire`
 * `>$ npm install`<br>Installs the dependencies
 * `>$ npm test`<br>Runs test and test coverage
 -----------------
