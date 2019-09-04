@@ -2,7 +2,6 @@
 
 ## Description
 This technical test consists of a simple website that via a questionnaire will generate a quote for a life insurance product for a user based on the answers to some questions. The quote is for the cover amount of the policy.
-
 The questionnaire includes three questions. Each of them reveals the next one until the last question releases the `result` button. This will show the policy quote and the summary of the information given by the user.
 -----------------
 ## Instruction
