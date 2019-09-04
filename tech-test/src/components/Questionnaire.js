@@ -3,6 +3,7 @@ import QuestionOne from './QuestionOne'
 import QuestionTwo from './QuestionTwo'
 import QuestionThree from './QuestionThree'
 import Result from './Result'
+import Summary from './Summary'
 
 class Questionnaire extends React.Component {
   constructor(props) {
@@ -72,7 +73,10 @@ class Questionnaire extends React.Component {
         </div>
         <div>
           { this.state.smoker !== '' &&
-            <QuestionThree onHandleBMI={this.onHandleBMI}/>
+            <QuestionThree 
+            onHandleChangeHeight={this.onHandleChangeHeight}
+            onHandleChangeWeight={this.onHandleChangeWeight}
+            onHandleBMI={this.onHandleBMI}/>
           }
         </div>
         <div>
@@ -82,6 +86,17 @@ class Questionnaire extends React.Component {
               BMI={this.state.BMI}
               smoker={this.state.smoker}
               onHandleCoefficient={this.onHandleCoefficient}
+            />
+          }
+        </div>
+        <div>
+          { this.state.coefficient !== '' &&
+            <Summary 
+              date={this.state.date}
+              smoker={this.state.smoker}
+              height={this.state.height}
+              weight={this.state.weight}
+              coefficient={this.state.coefficient}
             />
           }
         </div>

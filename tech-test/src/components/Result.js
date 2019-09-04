@@ -7,7 +7,6 @@ class Result extends React.Component {
     super(props);
     this.state = {
       BMIrange: '',
-      age: '',
       ageRange: ''
     }
     this.handleCoefficient = this.handleCoefficient.bind(this)
@@ -47,8 +46,8 @@ class Result extends React.Component {
       }
   }
 
-  handleCoefficient(matrix = Matrix) {
-    var coefficient = matrix[this.BMIrange()][this.ageRange()]
+  handleCoefficient() {
+    var coefficient = Matrix[this.BMIrange()][this.ageRange()]
     this.calculateCoefficient(coefficient)
     this.props.onHandleCoefficient(coefficient)
   }

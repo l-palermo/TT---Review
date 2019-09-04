@@ -3,6 +3,10 @@ import React from 'react';
 class QuestionThree extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      height: '',
+      weight: ''
+    };
     this.handleBMI = this.handleBMI.bind(this);
     this.handleChangeHeight = this.handleChangeHeight.bind(this);
     this.handleChangeWeight = this.handleChangeWeight.bind(this);
@@ -10,14 +14,16 @@ class QuestionThree extends React.Component {
 
   handleChangeHeight(event) {
     this.props.onHandleChangeHeight(event)
+    this.setState({ height: event.target.value })
   }
 
   handleChangeWeight(event) {
     this.props.onHandleChangeWeight(event)
+    this.setState({ weight: event.target.value })
   }
 
   handleBMI(event) {
-    var BMI = this.props.weight / (this.props.height**2)
+    var BMI = this.state.weight / (this.state.height**2)
     this.props.onHandleBMI(BMI)
     event.preventDefault();
   }
