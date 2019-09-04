@@ -1,6 +1,7 @@
 import React from 'react';
 import QuestionOne from './QuestionOne'
 import QuestionTwo from './QuestionTwo'
+import QuestionThree from './QuestionThree'
 
 class Questionnaire extends React.Component {
   constructor(props) {
@@ -8,11 +9,17 @@ class Questionnaire extends React.Component {
     this.state = {
       date: '',
       eligible: '',
-      smoker: ''
+      smoker: '',
+      height: '',
+      weight: '',
+      BMI: '',
     }
     this.onHandleChange = this.onHandleChange.bind(this);
     this.onHandleEligible = this.onHandleEligible.bind(this);
     this.onHandleSmoker = this.onHandleSmoker.bind(this);
+    this.onHandleChangeHeight = this.onHandleChangeHeight.bind(this);
+    this.onHandleChangeWeight = this.onHandleChangeWeight.bind(this);
+    this.onHandleBMI = this.onHandleBMI.bind(this);
   }
 
   onHandleChange(event) {
@@ -25,6 +32,18 @@ class Questionnaire extends React.Component {
 
   onHandleSmoker(event) {
     this.setState({ smoker: event.target.text })
+  }
+
+  onHandleChangeHeight(event) {
+    this.setState({ height: event.target.value })
+  }
+
+  onHandleChangeWeight(event) {
+    this.setState({ weight: event.target.value })
+  }
+
+  onHandleBMI(bmi) {
+    this.setState({ BMI: bmi})
   }
 
   render() {
@@ -42,6 +61,11 @@ class Questionnaire extends React.Component {
         <div>
           { this.state.eligible === true &&
             <QuestionTwo onHandleSmoker={this.onHandleSmoker}/>
+          }
+        </div>
+        <div>
+          { this.state.smoker !== '' &&
+            <QuestionThree onHandleBMI={this.onHandleBMI}/>
           }
         </div>
       </div>
