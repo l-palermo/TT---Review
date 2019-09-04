@@ -8,13 +8,9 @@ it('renders without crashing', () => {
 it('call function onHandleChange on text field change', () => {
   const onHandleChangeMock = jest.fn()
   const wrapper = shallow(<QuestionOne onHandleChange={onHandleChangeMock}/>)
-  // const instance = wrapper.instance()
-  // const eventMock = {target: {name:'date', value:'test'} }
   const input1 = wrapper.find({ name:"date" })
-  // instance.handleChange(eventMock);
   input1.simulate('change')
   expect(onHandleChangeMock).toHaveBeenCalled()
-  // expect(wrapper.state('date')).toEqual('test');
 });
 
 it('returns the date as integer', () => {
@@ -56,7 +52,6 @@ it('call function onHandleEligible', () => {
   const onHandleEligibleMock = jest.fn()
   const date = '1991/11/11'
   const wrapper = shallow(<QuestionOne onHandleEligible={onHandleEligibleMock} date={date}/>)
-  const instance = wrapper.instance()
   const eventMock = {preventDefault:function(){}}
   const input1 = wrapper.find({ value:"Submit" })
   input1.simulate('click', eventMock)

@@ -1,6 +1,6 @@
 import React from 'react';
 import QuestionOne from './QuestionOne'
-
+import QuestionTwo from './QuestionTwo'
 
 class Questionnaire extends React.Component {
   constructor(props) {
@@ -8,10 +8,11 @@ class Questionnaire extends React.Component {
     this.state = {
       date: '',
       eligible: '',
-
+      smoker: ''
     }
     this.onHandleChange = this.onHandleChange.bind(this);
     this.onHandleEligible = this.onHandleEligible.bind(this);
+    this.onHandleSmoker = this.onHandleSmoker.bind(this);
   }
 
   onHandleChange(event) {
@@ -20,6 +21,10 @@ class Questionnaire extends React.Component {
 
   onHandleEligible(eligible) {
     this.setState({ eligible: eligible })
+  }
+
+  onHandleSmoker(event) {
+    this.setState({ smoker: event.target.text })
   }
 
   render() {
@@ -34,6 +39,11 @@ class Questionnaire extends React.Component {
           />
         </div>
         <div>{this.state.eligible}</div>
+        <div>
+          { this.state.eligible === true &&
+            <QuestionTwo onHandleSmoker={this.onHandleSmoker}/>
+          }
+        </div>
       </div>
     )
   }

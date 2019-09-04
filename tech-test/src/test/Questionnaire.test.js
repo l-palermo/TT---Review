@@ -24,3 +24,13 @@ describe('#onHandleEligible', () => {
     expect(wrapper.state('eligible')).toEqual(true);
   })
 })
+
+describe('#onHandleSmoker', () => {
+  it('calls this.state to change smoker state', () => {
+    const wrapper = shallow(<Questionnaire />);
+    const instance = wrapper.instance()
+    const eventMock = {target: {text: 'yes'}}
+    instance.onHandleSmoker(eventMock);
+    expect(wrapper.state('smoker')).toEqual('yes');
+  })
+})
